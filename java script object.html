@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="change"></div>
+
+    <form action="">
+        <label for="fullname">Full Name</label><br />
+        <input type="text" id="fullname" size="50%" required maxlength="50" /><br />
+        <label for="phone">Phone</label><br />
+        <input type="tel" id="phone" size="50%" required /><br />
+        <label for="age">Age</label><br />
+        <input type="number" id="age" min="8" max="100" /><br />
+    </form>
+    <input type="submit" value="submit" id="btn">
+
+</body>
+
+<script>
+    function Register(name, age, phone) {
+        this.fullName = name;
+        this.phone = age;
+        this.age = phone;
+        this.introduceMySelf = () => {
+            parent = document.getElementById('change');
+            const div = document.createElement('div');
+            div.classList.add('appended');
+            div.innerHTML = `<h1> Newly Added Form </h1><h1>Full Name: ${this.fullName}</h1><h1> Age: ${this.age} </h1><h1>PhoneNo.: ${this.phone}</h1 >`;
+            parent.appendChild(div)
+        }
+
+    }
+    const callBack = () => {
+        var name = document.getElementById('fullname').value;
+        var fullname = document.getElementById('phone').value;
+        var age = document.getElementById('age').value;
+
+        const newObject = new Register(name, fullname, age);
+        newObject.introduceMySelf()
+    }
+    document.getElementById('btn').addEventListener('click', callBack);
+
+    // function Display() {
+    //     this.fullName = document.getElementById('fullname').value;
+    //     this.phone = document.getElementById('phone').value;
+    //     this.age = document.getElementById('age').value;
+    //     this.introduceMySelf = () => {
+    //         parent = document.getElementById('change');
+    //         const div = document.createElement('div');
+    //         div.classList.add('appended');
+    //         div.innerHTML = `< h1 > Newly Added Form < /h1><h1>Full Name: ${this.fullName}</h1><h1> Age: ${this.age} < /h1><h1>PhoneNo.: ${this.phone}</h1 >`;
+    //         parent.appendChild(div)
+    //     }
+
+    // }
+    // const newHTML = function() {
+    //     const newObject = new Display();
+    //     newObject.introduceMySelf()
+    // }
+
+
+    // document.getElementById('submitBtn').addEventListener('click', newHTML);
+    // const newHTML = function() {
+    //     function Display() {
+    //         this.fullName = document.getElementById('fullname').value;
+    //         this.phone = document.getElementById('phone').value;
+    //         this.age = document.getElementById('age').value;
+
+
+    //     }
+    //     var newObject = new Display();
+
+    //     var change = function() {
+    //         parent = document.getElementById('change');
+    //         const div = document.createElement('div');
+    //         div.classList.add('appended');
+    //         div.innerHTML = `< h1 > Newly Added Form < /h1><h1>Full Name: ${this.fullName}</h1><h1> Age: ${this.age} < /h1><h1>PhoneNo.: ${this.phone}</h1 >`;
+    //         parent.appendChild(div)
+    //     }
+    //     change();
+    // }
+
+
+    // document.getElementById('submitBtn').addEventListener('click', newHTML);
+</script>
+
+</html>
